@@ -33,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
 
         popHeight= (int) (getResources().getDisplayMetrics().heightPixels*0.75f);
         popupWindow=new MyPopupWindow(this);
+
+        //根据键盘高度设置popupWindow来防止popupWindow被键盘顶到上面去
         SoftKeyBoardListener.setListener(this, new SoftKeyBoardListener.OnSoftKeyBoardChangeListener() {
             @Override
             public void keyBoardShow(int height) {
@@ -58,7 +60,9 @@ public class MainActivity extends AppCompatActivity {
             setContentView(contentView);
             setWidth(WindowManager.LayoutParams.MATCH_PARENT);
             setHeight(popHeight);
+            //设置后键盘才会弹出
             setFocusable(true);
+            //popupWindow改变高度会比键盘弹出慢一些，设置成RESIZE可以避免往上弹一下的情况。
             setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
             RecyclerView recyclerView=contentView.findViewById(R.id.recyclerView);
             recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
