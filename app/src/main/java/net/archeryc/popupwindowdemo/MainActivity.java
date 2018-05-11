@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
             setWidth(WindowManager.LayoutParams.MATCH_PARENT);
             setHeight(popHeight);
             setFocusable(true);
-            setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_NOTHING);
+            setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
             RecyclerView recyclerView=contentView.findViewById(R.id.recyclerView);
             recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
             recyclerView.setAdapter(new MyAdapter(MainActivity.this));
